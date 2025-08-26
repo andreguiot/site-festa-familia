@@ -1,0 +1,113 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600&display=swap');
+
+:root{
+  --blue-royal: #003c7f;
+  --star-yellow: #f5c216;
+  
+  --bg-start: #003A82; 
+  --bg-end: #003A82;    
+  --card-bg: #c6c6c6;
+  --accent: var(--star-yellow); 
+  --text-primary: #2876dd;
+  --text-secondary: #000000;
+  --border-color: #334155;
+
+  --radius:14px; 
+  --gap:14px; 
+  --maxwidth:1100px;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif; 
+    margin:0; 
+    background:linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%); 
+    color:var(--text-primary); 
+    display:flex; 
+    justify-content:center; 
+    padding:24px;
+}
+
+.wrap{
+    width:100%; 
+    max-width:var(--maxwidth);
+} 
+
+/* Header */
+header{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:18px;
+}
+.brand{
+    display:flex;
+    align-items:center;
+    gap:24px; 
+    width: 100%;
+}
+
+.brand h1 {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.brand .title-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--accent);
+}
+
+.brand .title-sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #f0f0f0;
+    margin-top: 4px;
+}
+
+/* Layout */
+.grid{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:var(--gap);
+}
+
+.sidebar, .main{
+    background-color: var(--card-bg); 
+    border-radius:var(--radius); 
+    padding:16px; 
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.main{
+    min-height:420px;
+}
+
+.placeholder{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:260px;
+    color:var(--text-secondary); 
+    text-align: center;
+}
+
+.small{
+    font-size:13px;
+}
+
+footer{
+    margin-top:18px;
+    color: #ccc;
+    font-size:12px; 
+    text-align: center;
+}
