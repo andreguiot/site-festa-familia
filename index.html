@@ -10,35 +10,46 @@
   <div class="wrap">
     <header>
       <div class="brand">
+        <!-- Imagem do logo adicionada -->
+        <img src="imagens/logo-media.png" alt="LaSalle Abel">
         <h1>
           <span class="title-main">Festa da Família</span>
           <span class="title-sub">Cronograma de Atividades</span>
         </h1>
       </div>
     </header>
+
     <div class="grid">
       <aside class="sidebar">
-        <div class="panel-title"><strong>Turmas</strong></div>
+        <!-- Adicionado contador de turmas -->
+        <div class="panel-title"><strong>Turmas</strong><span class="small">Total: <span id="total-turmas">0</span></span></div>
         <div class="years" id="years-container">
-          <p>Carregando turmas...</p>
+          <!-- Gerado via JS -->
         </div>
       </aside>
+
       <main class="main">
         <div class="title">
-          <h2>Selecione uma turma</h2>
-          <div class="subtitle">Visualização do cronograma</div>
+          <h2 id="main-title">Selecione uma turma</h2>
+          <div class="subtitle" id="main-subtitle">Visualização do cronograma</div>
         </div>
+
         <div id="content-area">
           <div class="placeholder" id="placeholder">
-            <div>Nenhuma turma selecionada</div>
-            <div class="small">Clique em uma turma para ver o cronograma.</div>
+            <div style="font-size:22px">Nenhuma turma selecionada</div>
+            <div class="small" style="margin-top:8px">Clique em uma turma na barra lateral para ver o cronograma.</div>
           </div>
+          <!-- A tabela será adicionada na próxima etapa -->
         </div>
       </main>
     </div>
+    
     <footer>
+        <p>&copy; 2025 LaSalle Abel. Todos os direitos reservados.</p>
     </footer>
   </div>
 
+  <!-- Link para o JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
