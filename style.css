@@ -11,47 +11,19 @@
   --accent: var(--star-yellow); 
   --text-primary: #2876dd;
   --text-secondary: #000000;
+  --muted: #64748b;
   --border-color: #334155;
   --glass: rgba(255, 255, 255, 0.01);
 
-
-  --radius:14px; 
-  --gap:14px; 
-  --maxwidth:1100px;
+  --radius:14px; --gap:14px; --maxwidth:1100px;
 }
-
-*{
-    box-sizing:border-box;
-}
-
-body{
-    font-family: 'Poppins', sans-serif; 
-    margin:0; 
-    background:linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%); 
-    color:var(--text-primary); 
-    display:flex; 
-    justify-content:center; 
-    padding:24px;
-}
-
-.wrap{
-    width:100%; 
-    max-width:var(--maxwidth);
-} 
+*{box-sizing:border-box}
+body{font-family:'Poppins', sans-serif; margin:0; background:linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%); color:var(--text-primary); display:flex; justify-content:center; padding:24px;}
+.wrap{width:100%; max-width:var(--maxwidth);} 
 
 /* Header */
-header{
-    display:flex;
-    align-items:center;
-    gap:18px;
-    margin-bottom:18px;
-}
-.brand{
-    display:flex;
-    align-items:center;
-    gap:24px; 
-    width: 100%;
-}
+header{display:flex;align-items:center;gap:18px;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:24px; width: 100%;}
 
 .brand img{
     width:250px;
@@ -84,59 +56,16 @@ header{
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-/* Layout */
-.grid{
-    display:grid;
-    grid-template-columns:320px 1fr;
-    gap:var(--gap);
-}
+.grid{display:grid;grid-template-columns:320px 1fr;gap:var(--gap)}
 
 /* Sidebar */
-.sidebar{
-    background-color: var(--card-bg); 
-    border-radius:var(--radius); 
-    padding:16px; 
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-.panel-title{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:10px; 
-    padding: 0 4px;
-}
-.years{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-}
-.year-card{
-    background:var(--glass); 
-    padding:12px;
-    border-radius:10px; 
-    border: 1px solid var(--border-color);
-}
-.year-card h3{
-    margin:0;
-    font-size:14px; 
-    color: var(--text-primary);
-}
-.turmas{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:8px;
-}
-.turma-btn{
-    background:transparent;
-    border:1px solid var(--border-color);
-    padding:6px 10px;
-    border-radius:8px;
-    cursor:pointer;
-    color:var(--text-secondary);
-    font-size:13px; 
-    transition: all 0.2s ease-in-out;
-}
+.sidebar{background-color: var(--card-bg); border-radius:var(--radius); padding:16px; box-shadow: 0 6px 20px rgba(0,0,0,0.3)}
+.panel-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px; padding: 0 4px;}
+.years{display:flex;flex-direction:column;gap:8px}
+.year-card{background:var(--glass); padding:12px;border-radius:10px; border: 1px solid var(--border-color);}
+.year-card h3{margin:0;font-size:14px; color: var(--text-primary)}
+.turmas{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.turma-btn{background:transparent;border:1px solid var(--border-color);padding:6px 10px;border-radius:8px;cursor:pointer;color:var(--text-secondary);font-size:13px; transition: all 0.2s ease-in-out;}
 
 .turma-btn:hover, .turma-btn.active {
     background-color: var(--accent); 
@@ -145,55 +74,40 @@ header{
     box-shadow: 0 0 12px 2px rgba(245, 194, 22, 0.7);
 }
 
-
 /* Main */
-.main{
-    background:var(--card-bg); 
-    padding:18px;
-    border-radius:var(--radius);
-    box-shadow:0 6px 20px rgba(0,0,0,0.3);
-    min-height:420px;
+.main{background:var(--card-bg); padding:18px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(0,0,0,0.3);min-height:420px}
+.crumbs{color:var(--text-secondary);font-size:13px;margin-bottom:10px}
+.title{display:flex;justify-content:space-between;align-items:center}
+.title h2{margin:0;font-size:18px}
+.title .subtitle{color:var(--text-secondary);font-size:13px}
+
+/* Estilos da Tabela */
+table{width:100%;border-collapse:collapse;margin-top:12px}
+th,td{padding:12px;text-align:left;border-bottom:1px solid var(--border-color)}
+th{color:var(--text-secondary);font-size:13px; font-weight: 600;}
+
+td:first-child{
+    font-weight: 600; 
+    color: var(--accent); 
+    vertical-align: top;
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
 }
 
-.title{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-.title h2{
-    margin:0;
-    font-size:18px;
-}
-.title .subtitle{
-    color:var(--text-secondary);
-    font-size:13px;
-}
+.placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;height:260px;color:var(--text-secondary); text-align: center;}
+.small{font-size:13px}
+.teacher-info{font-size:12px; margin-top: 6px; color: var(--text-secondary); line-height: 1.5;}
+.teacher-info strong{color: var(--text-primary);}
 
-.placeholder{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    height:260px;
-    color:var(--text-secondary); 
-    text-align: center;
-}
-.small{
-    font-size:13px;
-}
+footer{margin-top:18px;color:var(--muted);font-size:12px; text-align: center;}
 
-footer{
-    margin-top:18px;
-    color: #ccc;
-    font-size:12px; 
-    text-align: center;
-}
-
-/* Responsive */
+/* responsive */
 @media(max-width:900px){
   body{padding: 16px;}
-  .grid{grid-template-columns:1fr;}
-  .sidebar{order:2}
+  .grid{grid-template-columns:1fr;}.sidebar{order:2}
   
   .brand{
       flex-direction: column; 

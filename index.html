@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Festa da Família — LaSalle Abel</title>
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
-        <!-- Imagem do logo adicionada -->
         <img src="imagens/logo-media.png" alt="LaSalle Abel">
         <h1>
           <span class="title-main">Festa da Família</span>
@@ -21,7 +21,6 @@
 
     <div class="grid">
       <aside class="sidebar">
-        <!-- Adicionado contador de turmas -->
         <div class="panel-title"><strong>Turmas</strong><span class="small">Total: <span id="total-turmas">0</span></span></div>
         <div class="years" id="years-container">
           <!-- Gerado via JS -->
@@ -29,6 +28,8 @@
       </aside>
 
       <main class="main">
+        <!-- Adicionado para mostrar a seleção atual -->
+        <div class="crumbs">Ano: <strong id="year-selected">-</strong> • Turma: <strong id="class-selected">-</strong></div>
         <div class="title">
           <h2 id="main-title">Selecione uma turma</h2>
           <div class="subtitle" id="main-subtitle">Visualização do cronograma</div>
@@ -39,17 +40,22 @@
             <div style="font-size:22px">Nenhuma turma selecionada</div>
             <div class="small" style="margin-top:8px">Clique em uma turma na barra lateral para ver o cronograma.</div>
           </div>
-          <!-- A tabela será adicionada na próxima etapa -->
+
+          <!-- Estrutura da tabela para exibir o cronograma -->
+          <table id="schedule-table" style="display:none">
+            <thead>
+              <tr><th>Horário</th><th>Atividade e Responsáveis</th></tr>
+            </thead>
+            <tbody id="schedule-body"></tbody>
+          </table>
         </div>
       </main>
     </div>
-    
     <footer>
-        <p>&copy; 2025 LaSalle Abel. Todos os direitos reservados.</p>
+        <p>&copy; 2025 LaSalle Abel.</p>
     </footer>
   </div>
 
-  <!-- Link para o JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
