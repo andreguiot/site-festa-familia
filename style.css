@@ -2,23 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600&display=swap');
 
 :root{
-  --blue-royal: #003c7f;
-  --star-yellow: #f5c216;
+  --blue-royal: #003c7f; /* La Salle blue */
+  --star-yellow: #f5c216; /* La Salle star yellow */
   
   --bg-start: #003A82; 
   --bg-end: #003A82;    
-  --card-bg: #c6c6c6;
+  --card-bg: #c6c6c6; /* Um tom de cinza escuro para os cards */
   --accent: var(--star-yellow); 
-  --text-primary: #2876dd;
-  --text-secondary: #000000;
+  --text-primary: #2876dd; /* Cinza claro texto principal */
+  --text-secondary: #000000; /* Cinza azulado texto secundário */
   --muted: #64748b;
   --border-color: #334155;
   --glass: rgba(255, 255, 255, 0.01);
 
   --radius:14px; --gap:14px; --maxwidth:1100px;
+  color-scheme: dark;
 }
 *{box-sizing:border-box}
-body{font-family:'Poppins', sans-serif; margin:0; background:linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%); color:var(--text-primary); display:flex; justify-content:center; padding:24px;}
+body{font-family:Poppins, Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%); color:var(--text-primary); display:flex; justify-content:center; padding:24px;}
 .wrap{width:100%; max-width:var(--maxwidth);} 
 
 /* Header */
@@ -29,9 +30,10 @@ header{display:flex;align-items:center;gap:18px;margin-bottom:18px}
     width:250px;
     height:auto;
     object-fit:contain;
-    flex-shrink: 0;
+    flex-shrink: 0; /* Impede que a imagem encolha */
 }
 
+/* --- ESTILOS DO TÍTULO ATUALIZADOS --- */
 .brand h1 {
     display: flex;
     flex-direction: column;
@@ -43,8 +45,10 @@ header{display:flex;align-items:center;gap:18px;margin-bottom:18px}
     font-family: 'Playfair Display', serif;
     font-size: 42px;
     font-weight: 900;
+    letter-spacing: 1px;
     color: var(--accent);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    /* Sombra para embelezar e dar profundidade */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(245, 194, 22, 0.3);
 }
 
 .brand .title-sub {
@@ -52,9 +56,11 @@ header{display:flex;align-items:center;gap:18px;margin-bottom:18px}
     font-size: 16px;
     font-weight: 400;
     color: #f0f0f0;
+    letter-spacing: 0.5px;
     margin-top: 4px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
+/* --- FIM DOS ESTILOS DO TÍTULO --- */
 
 .grid{display:grid;grid-template-columns:320px 1fr;gap:var(--gap)}
 
@@ -81,7 +87,6 @@ header{display:flex;align-items:center;gap:18px;margin-bottom:18px}
 .title h2{margin:0;font-size:18px}
 .title .subtitle{color:var(--text-secondary);font-size:13px}
 
-/* Estilos da Tabela */
 table{width:100%;border-collapse:collapse;margin-top:12px}
 th,td{padding:12px;text-align:left;border-bottom:1px solid var(--border-color)}
 th{color:var(--text-secondary);font-size:13px; font-weight: 600;}
@@ -111,15 +116,16 @@ footer{margin-top:18px;color:var(--muted);font-size:12px; text-align: center;}
   
   .brand{
       flex-direction: column; 
-      align-items: center;
+      align-items: center; /* Centraliza no mobile */
       gap: 16px;
-      text-align: center;
+      text-align: center; /* Centraliza o texto */
   }
   .brand img{
       width:200px;
+      height:auto;
   }
   .brand .title-main{
-      font-size:32px;
+      font-size:32px; /* Ajusta o tamanho da fonte para mobile */
   }
   .brand .title-sub {
       font-size: 14px;

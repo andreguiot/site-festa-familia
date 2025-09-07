@@ -5,13 +5,25 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Festa da Família — LaSalle Abel</title>
   
+  <link rel="shortcut icon" href="imagens/Brasao-la-salle.ico" type="image/x-icon">
+  
+  <!-- Link para o arquivo de estilos -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
-        <img src="imagens/logo-media.png" alt="LaSalle Abel">
+        
+        <picture>
+          <source media="(min-width: 1024px)" srcset="imagens/logo-grande.png">
+  
+          <source media="(min-width: 600px)" srcset="imagens/logo-media.png">
+        
+          <img src="imagens/logo-pequena.png" alt="LaSalle Abel">
+        </picture>
+        
+        <!-- O título foi separado em duas partes para estilização -->
         <h1>
           <span class="title-main">Festa da Família</span>
           <span class="title-sub">Cronograma de Atividades</span>
@@ -28,7 +40,6 @@
       </aside>
 
       <main class="main">
-        <!-- Adicionado para mostrar a seleção atual -->
         <div class="crumbs">Ano: <strong id="year-selected">-</strong> • Turma: <strong id="class-selected">-</strong></div>
         <div class="title">
           <h2 id="main-title">Selecione uma turma</h2>
@@ -41,7 +52,6 @@
             <div class="small" style="margin-top:8px">Clique em uma turma na barra lateral para ver o cronograma.</div>
           </div>
 
-          <!-- Estrutura da tabela para exibir o cronograma -->
           <table id="schedule-table" style="display:none">
             <thead>
               <tr><th>Horário</th><th>Atividade e Responsáveis</th></tr>
@@ -51,11 +61,10 @@
         </div>
       </main>
     </div>
-    <footer>
-        <p>&copy; 2025 LaSalle Abel.</p>
-    </footer>
+    <footer></footer>
   </div>
 
+  <!-- Link para o arquivo JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
