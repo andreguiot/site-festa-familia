@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                         "time": "16h40",
                                         "edFisica": "134",
                                         "maker": "133",
-                                        "mEspiritual": "135, 136T",
+                                        "mEspiritual": "135, 136T, 137T",
                                         "exprCult": ""
                                 },
                                 {
@@ -126,11 +126,11 @@ document.addEventListener('DOMContentLoaded', () => {
                                         "edFisica": "133",
                                         "maker": "134",
                                         "mEspiritual": "",
-                                        "exprCult": "135, 136T"
+                                        "exprCult": "135, 136T, 137T"
                                 },
                                 {
                                         "time": "17h20",
-                                        "edFisica": "135",
+                                        "edFisica": "135, 137T",
                                         "maker": "136",
                                         "mEspiritual": "",
                                         "exprCult": "133, 134T"
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 {
                                         "time": "16h20",
                                         "edFisica": "",
-                                        "maker": "137T",
+                                        "maker": "",
                                         "mEspiritual": "147 e 148T",
                                         "exprCult": ""
                                 },
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                         "time": "16h40",
                                         "edFisica": "147T",
                                         "maker": "148T",
-                                        "mEspiritual": "137T",
+                                        "mEspiritual": "",
                                         "exprCult": ""
                                 },
                                 {
@@ -250,11 +250,11 @@ document.addEventListener('DOMContentLoaded', () => {
                                         "edFisica": "148T",
                                         "maker": "147T",
                                         "mEspiritual": "",
-                                        "exprCult": "137T"
+                                        "exprCult": ""
                                 },
                                 {
                                         "time": "17h20",
-                                        "edFisica": "137T",
+                                        "edFisica": "",
                                         "maker": "",
                                         "mEspiritual": "",
                                         "exprCult": "147 e 148T"
@@ -333,8 +333,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 };
-    const activityMap={edFisica:{name:'Ed. Física',location:'Quadra',teacherKey:'aquecimento'},maker:{name:'Maker',location:'Sl. Maker',teacherKey:'maker'},mEspiritual:{name:'M. Espiritual',location:'Teatro',teacherKey:'mEspiritual'},exprCult:{name:'Expr. Cultural',location:'Sl. 223',teacherKey:'exprCult'}};
-    const teacherData={aquecimento:{prof:['Laísa','Carlos Raphael'],apoio:['Estagiários','Prof. Inglês','Prof. Regente']},maker:{prof:['André','Eduardo Santos'],apoio:['Jovem Aprendiz','Prof. Inglês','Prof. Regente']},mEspiritual:{prof:['Ariadni','Pastoral'],apoio:['Valeria','Prof. Regente','Ygor']},exprCult:{prof:['Amanda','Lúcio'],apoio:['Barbara','Prof. Regente']}};
+    const activityMap={edFisica:{name:'Exercite-se',location:'Quadra',teacherKey:'aquecimento'},maker:{name:'Lab Maker',location:'',teacherKey:'maker'},mEspiritual:{name:'Doses de Fé',location:'Teatro',teacherKey:'mEspiritual'},exprCult:{name:'Apres.Musical',location:'Sl. 223',teacherKey:'exprCult'}};
+    
+    const teacherData = {
+        aquecimento: { prof: ['Laísa Telles', 'Raphael Souza'] },
+        maker: {
+            matutino: { prof: ['André Matta', 'André Guiot'] },
+            vespertino: { prof: ['André Matta', 'Christian Martins'] }
+        },
+        mEspiritual: { prof: ['Pastoral'] },
+        exprCult: { prof: ['Amanda Mateus'] }
+    };
 
     let cronogramas = [];
 
@@ -353,13 +362,20 @@ document.addEventListener('DOMContentLoaded', () => {
                             turmas.forEach(turma => {
                                 if (!turma) return;
                                 let fullTurmaName = turma.endsWith('M') || turma.endsWith('T') ? turma : turma + turnSuffix;
+
+                                const teacherKey = activityMap[activityKey].teacherKey;
+                                let professoresParaAtividade = teacherData[teacherKey];
+
+                        if (professoresParaAtividade.matutino && professoresParaAtividade.vespertino) {
+                                professoresParaAtividade = professoresParaAtividade[turn];
+                        }
                                 cronogramas.push({
                                     ano: year,
                                     turma: fullTurmaName,
                                     horario: event.time,
                                     atividade: activityMap[activityKey].name,
                                     local: activityMap[activityKey].location,
-                                    professores: teacherData[activityMap[activityKey].teacherKey],
+                                    professores: professoresParaAtividade,
                                     data: turnData.date
                                 });
                             });
@@ -445,12 +461,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (it.professores) {
                 teacherHtml = `
                     <div class="teacher-info">
-                        <strong>Prof.:</strong> ${it.professores.prof.join(', ')}<br>
-                        <strong>Apoio:</strong> ${it.professores.apoio.join(', ')}
+                        <strong>Prof.:</strong> ${it.professores.prof.join(', ')}
                     </div>
                 `;
             }
-            tr.innerHTML = `<td>${it.horario}</td><td><strong>${it.atividade}</strong> (${it.local})${teacherHtml}</td>`;
+        const localInfo = it.local ? ` (${it.local})` : '';
+            tr.innerHTML = `<td>${it.horario}</td><td><strong>${it.atividade}</strong>${localInfo}${teacherHtml}</td>`;
             body.appendChild(tr);
         });
     }
