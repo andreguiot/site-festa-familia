@@ -167,8 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                         "time": "9h00",
                                         "edFisica": "",
                                         "maker": "",
-                                        "mEspiritual": "141M",
-                                        "exprCult": "142M"
+                                        "mEspiritual": "",
+                                        "exprCult": "141 e 142M"
                                 },
                                 {
                                         "time": "8h00",
